@@ -17,6 +17,9 @@ colorscheme desert256
 syntax on
 set laststatus=2   " Always show the statusline
 
+"mapping
+map <f9> :TList<CR>
+
 "vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
