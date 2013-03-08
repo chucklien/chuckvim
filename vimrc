@@ -18,7 +18,7 @@ syntax on
 set laststatus=2   " Always show the statusline
 
 "mapping
-map <f9> :TList<CR>
+map <f9> :Tlist<CR>
 
 "vundle
 filetype off
