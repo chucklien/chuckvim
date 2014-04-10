@@ -49,6 +49,7 @@ Bundle 'ctrlp.vim'
 Bundle 'surround.vim'
 Bundle 'snipMate'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Logcat-syntax-highlighter'
 
 filetype plugin indent on     " required!
 "
@@ -73,4 +74,4 @@ inoremap <RIGHT> <NOP>
  
 "config for make android project
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-autocmd BufRead *.java set makeprg=ant\ -find\ build.xml
+autocmd BufRead *.java set makeprg=ant\ -find\  
