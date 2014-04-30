@@ -16,9 +16,11 @@ set fileencoding=utf-8
 colorscheme desert256
 syntax on
 set laststatus=2   " Always show the statusline
+set clipboard=unnamed "make unnamed register be the same as the "*register
 
 "mapping
 map <f9> :Tlist<CR>
+map <f3> :let @+ = expand("%:p")<CR>
 
 "vundle
 filetype off
@@ -74,4 +76,4 @@ inoremap <RIGHT> <NOP>
  
 "config for make android project
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-autocmd BufRead *.java set makeprg=ant\ -find\  
+autocmd BufRead *.java set makeprg=ant\ 
