@@ -52,6 +52,7 @@ Bundle 'surround.vim'
 Bundle 'snipMate'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Logcat-syntax-highlighter'
+Bundle 'genoma/vim-less'
 
 filetype plugin indent on     " required!
 "
