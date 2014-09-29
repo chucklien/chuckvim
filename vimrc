@@ -78,3 +78,14 @@ inoremap <RIGHT> <NOP>
 "config for make android project
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 autocmd BufRead *.java set makeprg=ant\ 
+autocmd BufRead *.java set tabstop=4
+autocmd BufRead *.java set shiftwidth=4
+
+autocmd BufRead *.html set tabstop=2
+autocmd BufRead *.html set shiftwidth=2
+autocmd BufRead *.css set tabstop=4
+autocmd BufRead *.css set shiftwidth=4
+autocmd BufRead *.less set tabstop=4
+autocmd BufRead *.less set shiftwidth=4
+autocmd BufRead *.js set tabstop=4
+autocmd BufRead *.js set shiftwidth=4
