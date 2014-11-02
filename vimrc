@@ -53,6 +53,11 @@ Bundle 'snipMate'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Logcat-syntax-highlighter'
 Bundle 'genoma/vim-less'
+" extend the % function
+Bundle 'matchit.zip'
+" auto complete tag
+Bundle 'ragtag.vim'
+Bundle 'ap/vim-css-color'
 
 filetype plugin indent on     " required!
 "
