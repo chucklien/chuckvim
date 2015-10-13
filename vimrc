@@ -18,9 +18,20 @@ syntax on
 set laststatus=2   " Always show the statusline
 set clipboard=unnamed "make unnamed register be the same as the "*register
 
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let iCanHazVundle=0
+endif
+
 "mapping
 map <f9> :Tlist<CR>
 map <f3> :let @+ = expand("%:p")<CR>
+map <f2> :NERDTreeToggle<CR>
 
 "make // could search the word which selected in visual mode
 vnoremap // y/<C-R>"<CR>
@@ -53,7 +64,6 @@ Bundle 'cscope.vim'
 Bundle 'ctrlp.vim'
 Bundle 'surround.vim'
 Bundle 'snipMate'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'Logcat-syntax-highlighter'
 Bundle 'genoma/vim-less'
 " extend the % function
@@ -63,6 +73,9 @@ Bundle 'ragtag.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'ScrollColors'
 Bundle 'tomasr/molokai'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on     " required!
 "
