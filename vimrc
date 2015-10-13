@@ -13,7 +13,7 @@ set ruler
 set t_Co=256
 set encoding=utf-8
 set fileencoding=utf-8
-colorscheme desert256
+colorscheme molokai
 syntax on
 set laststatus=2   " Always show the statusline
 set clipboard=unnamed "make unnamed register be the same as the "*register
@@ -76,6 +76,13 @@ Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'bling/vim-airline'
+
+" configuration for airline
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+" show buffer number
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 filetype plugin indent on     " required!
 "
