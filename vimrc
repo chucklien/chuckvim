@@ -22,6 +22,9 @@ set clipboard=unnamed "make unnamed register be the same as the "*register
 map <f9> :Tlist<CR>
 map <f3> :let @+ = expand("%:p")<CR>
 
+"make // could search the word which selected in visual mode
+vnoremap // y/<C-R>"<CR>
+
 "vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -58,6 +61,8 @@ Bundle 'matchit.zip'
 " auto complete tag
 Bundle 'ragtag.vim'
 Bundle 'ap/vim-css-color'
+Bundle 'ScrollColors'
+Bundle 'tomasr/molokai'
 
 filetype plugin indent on     " required!
 "
