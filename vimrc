@@ -4,6 +4,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+" make backspace can delete autoindent
+set bs=indent
 set mouse=nv
 set hls
 set cursorline
@@ -76,6 +78,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'bling/vim-airline'
 Bundle 'sjl/badwolf'
+" it's required for vim-jsx
+Bundle 'pangloss/vim-javascript'
+" it's for jsx syntax highlight
+Bundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"it's used for use ack in vim
+Bundle 'mileszs/ack.vim'
 
 colorscheme molokai
 
@@ -97,6 +106,13 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip "MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " force myself to not to use the error keys
 map <UP> <NOP>
 map <DOWN> <NOP>
@@ -115,9 +131,10 @@ autocmd BufRead *.java set shiftwidth=4
 
 autocmd BufRead *.html set tabstop=2
 autocmd BufRead *.html set shiftwidth=2
-autocmd BufRead *.css set tabstop=4
-autocmd BufRead *.css set shiftwidth=4
-autocmd BufRead *.less set tabstop=4
-autocmd BufRead *.less set shiftwidth=4
-autocmd BufRead *.js set tabstop=4
-autocmd BufRead *.js set shiftwidth=4
+autocmd BufRead *.css set tabstop=2
+autocmd BufRead *.css set shiftwidth=2
+autocmd BufRead *.less set tabstop=2
+autocmd BufRead *.less set shiftwidth=2
+autocmd BufRead *.js set tabstop=2
+autocmd BufRead *.js set shiftwidth=2
+
