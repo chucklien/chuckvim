@@ -19,6 +19,9 @@ syntax on
 set laststatus=2   " Always show the statusline
 set clipboard=unnamed "make unnamed register be the same as the "*register
 
+" make vim could install vundle in fish shell
+set shell=/bin/bash
+
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
