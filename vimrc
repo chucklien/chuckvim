@@ -85,6 +85,8 @@ Bundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 "it's used for use ack in vim
 Bundle 'mileszs/ack.vim'
+"add nerdtree-execute
+Bundle 'ivalkeen/nerdtree-execute'
 
 colorscheme molokai
 
