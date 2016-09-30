@@ -15,21 +15,20 @@ set ruler
 set t_Co=256
 set encoding=utf-8
 set fileencoding=utf-8
-syntax on
 set laststatus=2   " Always show the statusline
 set clipboard=unnamed "make unnamed register be the same as the "*register
 
 " make vim could install vundle in fish shell
 set shell=/bin/bash
 
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    " mkdir autoload if not exist
+    " if !isdirectory($HOME."/.vim/autoload")
+    "     echo "Create autoload folder..."
+    "     call mkdir($HOME.'/.vim/autoload', "p")
+    " endif
+    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 "mapping
@@ -40,58 +39,53 @@ map <f2> :NERDTreeToggle<CR>
 "make // could search the word which selected in visual mode
 vnoremap // y/<C-R>"<CR>
 
-"vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
+" My Plug here:
+Plug 'tpope/vim-fugitive'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+Plug 'L9'
+Plug 'FuzzyFinder'
 " ...
 " my own
-Bundle 'taglist.vim'
-Bundle 'cscope.vim'
-Bundle 'ctrlp.vim'
-Bundle 'surround.vim'
-Bundle 'snipMate'
-Bundle 'Logcat-syntax-highlighter'
-Bundle 'genoma/vim-less'
+Plug 'taglist.vim'
+Plug 'cscope.vim'
+Plug 'ctrlp.vim'
+Plug 'surround.vim'
+Plug 'snipMate'
+Plug 'Logcat-syntax-highlighter'
+Plug 'genoma/vim-less'
 " extend the % function
-Bundle 'matchit.zip'
+Plug 'matchit.zip'
 " auto complete tag
-Bundle 'ragtag.vim'
-Bundle 'ap/vim-css-color'
-Bundle 'ScrollColors'
-Bundle 'tomasr/molokai'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Xuyuanp/nerdtree-git-plugin'
-Bundle 'bling/vim-airline'
-Bundle 'sjl/badwolf'
+Plug 'ragtag.vim'
+Plug 'ap/vim-css-color'
+Plug 'ScrollColors'
+Plug 'tomasr/molokai'
+Plug 'crusoexia/vim-monokai'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'bling/vim-airline'
+Plug 'sjl/badwolf'
 " it's required for vim-jsx
-Bundle 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 " it's for jsx syntax highlight
-Bundle 'mxw/vim-jsx'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+Plug 'mxw/vim-jsx'
 "it's used for use ack in vim
-Bundle 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 "add nerdtree-execute
-Bundle 'ivalkeen/nerdtree-execute'
+Plug 'ivalkeen/nerdtree-execute'
 
-colorscheme molokai
+" Add plugins to &runtimepath
+call plug#end()
+
+colorscheme monokai
+" colorscheme molokai
+
+" config for vim-jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " configuration for airline
 
@@ -99,17 +93,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " show buffer number
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip "MacOSX/Linux
 let g:ctrlp_custom_ignore = {
